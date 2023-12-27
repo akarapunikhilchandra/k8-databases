@@ -23,7 +23,7 @@ spec:
     spec: 
       containers: 
       - name: redis 
-        image: akarapunikhilchandra/redis:1.0.0 
+        image: redis 
         volumeMounts:
         - name: redis
           mountPath: /data
