@@ -1,35 +1,35 @@
 apiVersion: apps/v1 
 kind: StatefulSet
 metadata:  
-  name: mongodb  
+  name: redis  
   labels: 
-    app: mongodb 
+    app: redis 
     tier: db
     project: roboshop 
 spec: 
-  serviceName: "mongodb"
+  serviceName: "redis"
   replicas: 1
   selector: 
     matchLabels: 
-      app: mongodb 
+      app: redis 
       tier: db 
       project: roboshop 
   template:
     metadata: 
       labels: 
-        app: mongodb 
+        app: redis 
         tier: db 
         project: roboshop 
     spec: 
       containers: 
-      - name: mongodb 
-        image: akarapunikhilchandra/mongodb:1.0.0 
+      - name: redis 
+        image: akarapunikhilchandra/redis:1.0.0 
         volumeMounts:
-        - name: mongodb
-          mountPath: /data/db
+        - name: redis
+          mountPath: /data
   volumeClaimTemplates:
   - metadata:
-      name: mongodb
+      name: redis
     spec:
       accessModes: [ "ReadWriteOnce" ]
       storageClassName: "roboshop-dynamic-ebs"
@@ -44,11 +44,11 @@ metadata:
 spec: 
   clusterIP: None 
   selector: 
-    app: mongodb 
+    app: redis 
     tier: db 
     project: roboshop 
   ports: 
-  - name: mongodb-port 
+  - name: redis-port 
     protocol: TCP 
-    port: 27017 
-    targetPort: 27017
+    port: 6379
+    targetPort: 6379 
