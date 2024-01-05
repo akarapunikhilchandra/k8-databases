@@ -30,5 +30,5 @@ spec:
           mountPath: /data/db
       volumes: 
       - name: mongodb 
-        PersistentVolumeClaim: 
-          claimName: ebs-dynamic-pvc 
+        persistentVolumeClaim: 
+          claimName: ebs-dynamic-pvc
