@@ -33,6 +33,6 @@ spec:
           mountPath: /var/lib/mysql
       volumes: 
       - name: mysql 
-        PersistentVolumeClaim: 
+        persistentVolumeClaim: 
           claimName: ebs-mysql-pvc 
  

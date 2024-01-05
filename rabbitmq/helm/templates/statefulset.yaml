@@ -30,6 +30,6 @@ spec:
           mountPath: /var/lib/rabbitmq
       volumes: 
       - name: rabbitmq 
-        PersistentVolumeClaim: 
+        persistentVolumeClaim: 
           claimName: ebs-rabbitmq-pvc  
   
