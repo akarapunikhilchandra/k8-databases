@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: StatefulSet
 metadata:
   name: mongodb
-  namespace: roboshop 
+  namespace: roboshop
   labels:
     app: mongodb
     tier: db
@@ -28,7 +28,7 @@ spec:
         volumeMounts:
         - name: mongodb
           mountPath: /data/db
-      volumes: 
-      - name: mongodb 
-        persistentVolumeClaim: 
+      volumes:
+      - name: mongodb
+        persistentVolumeClaim: # this is the PVC
           claimName: ebs-dynamic-pvc
