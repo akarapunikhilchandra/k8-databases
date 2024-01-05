@@ -30,5 +30,5 @@ spec:
           mountPath: /data
       volumes: 
       - name: redis 
-        PersistentVolumeClaim: 
+        persistentVolumeClaim: 
           claimName: "ebs-redis-pvc" 
