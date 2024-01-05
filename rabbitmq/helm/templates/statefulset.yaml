@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: StatefulSet
 metadata:
   name: rabbitmq
+  namespace: roboshop 
   labels:
     app: rabbitmq
     tier: db
@@ -27,5 +28,8 @@ spec:
         volumeMounts:
         - name: rabbitmq
           mountPath: /var/lib/rabbitmq
-  # this is PVC directly.
+      volumes: 
+      - name: rabbitmq 
+        PersistentVolumeClaim: 
+          claimName: ebs-rabbitmq-pvc  
   
